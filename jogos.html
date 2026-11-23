@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Jogos | Playbook</title>
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../favicon.png"
+    >
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="../favicon.ico"
+    >
+
+
+    <!-- MODO NOTURNO -->
+
+    <script
+        src="tema.js"
+        defer
+    ></script>
+
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+
+    <script
+        src="app.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body class="fade-in">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Playbook - Página inicial"
+        >
+            PLAYBOOK
+        </a>
+
+
+
+        <!-- NAVEGAÇÃO -->
+
+        <nav
+            class="nav"
+            aria-label="Navegação principal"
+        >
+
+            <a href="index.html">
+                INÍCIO
+            </a>
+
+            <a href="historia.html">
+                NOSSA HISTÓRIA
+            </a>
+
+            <a href="como-funciona.html">
+                COMO FUNCIONA
+            </a>
+
+            <a href="livros.html">
+                LIVROS
+            </a>
+
+            <a
+                href="jogos.html"
+                class="active"
+            >
+                JOGOS
+            </a>
+
+        </nav>
+
+
+
+        <!-- ÁREA DO USUÁRIO -->
+
+        <div class="user-area">
+
+
+            <!-- SALDO -->
+
+            <div
+                class="time-panel"
+                aria-label="Saldo de tempo"
+            >
+
+                <span>
+                    Leitura
+                </span>
+
+                <strong id="readingTime">
+                    00:00:00
+                </strong>
+
+
+                <span>
+                    Jogos
+                </span>
+
+                <strong id="gameTime">
+                    00:00:00
+                </strong>
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <a
+                href="login.html"
+                class="login-button"
+            >
+                Entrar
+            </a>
+
+
+
+            <!-- MODO NOTURNO -->
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Alternar modo noturno"
+            >
+                Modo noturno
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <section class="page-header">
+
+            <p class="section-label">
+                PLAYBOOK
+            </p>
+
+            <h1>
+                Jogos
+            </h1>
+
+            <p>
+                Use o tempo conquistado através da leitura
+                para aproveitar seus jogos.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEÇÃO DE JOGOS
+        ================================================== -->
+
+        <section class="games-section">
+
+
+            <!-- =================================================
+                 SALDO DE JOGO
+            ================================================== -->
+
+            <div class="game-balance">
+
+                <p class="section-label">
+                    TEMPO DISPONÍVEL
+                </p>
+
+                <h2>
+                    Seu tempo de jogo
+                </h2>
+
+                <strong id="availableGameTime">
+                    00:00:00
+                </strong>
+
+                <p>
+                    O tempo utilizado nos jogos é descontado
+                    do saldo conquistado através da leitura.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CARDS DOS JOGOS
+            ================================================== -->
+
+            <div class="games-grid">
+
+
+                <!-- =================================================
+                     JOGO 1
+                ================================================== -->
+
+                <article class="game-card">
+
+
+                    <div class="game-image">
+
+                        <span>
+                            ARCADE
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="game-card-content">
+
+                        <h2>
+                            Desafio dos Céus
+                        </h2>
+
+
+                        <p>
+                            Desvie dos obstáculos, mantenha o
+                            personagem no ar e tente alcançar
+                            a maior pontuação.
+                        </p>
+
+
+                        <p>
+                            Controle:
+                            Espaço ou seta para cima.
+                        </p>
+
+
+
+                        <button
+                            type="button"
+                            class="button primary"
+                            onclick="openGame('sky')"
+                        >
+                            Jogar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     JOGO 2
+                ================================================== -->
+
+                <article class="game-card">
+
+
+                    <div class="game-image">
+
+                        <span>
+                            MEMÓRIA
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="game-card-content">
+
+                        <h2>
+                            Desafio da Memória
+                        </h2>
+
+
+                        <p>
+                            Encontre os pares corretos
+                            e teste sua memória.
+                        </p>
+
+
+                        <p>
+                            Controle:
+                            mouse.
+                        </p>
+
+
+
+                        <button
+                            type="button"
+                            class="button primary"
+                            onclick="openGame('memory')"
+                        >
+                            Jogar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     JOGO 3
+                ================================================== -->
+
+                <article class="game-card">
+
+
+                    <div class="game-image">
+
+                        <span>
+                            PALAVRAS
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="game-card-content">
+
+                        <h2>
+                            Desafio das Palavras
+                        </h2>
+
+
+                        <p>
+                            Teste seus conhecimentos e
+                            forme palavras.
+                        </p>
+
+
+                        <p>
+                            Controle:
+                            teclado.
+                        </p>
+
+
+
+                        <button
+                            type="button"
+                            class="button primary"
+                            onclick="openGame('word')"
+                        >
+                            Jogar
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         POPUP DOS JOGOS
+    ====================================================== -->
+
+    <div
+        id="gameArea"
+        class="game-popup"
+        hidden
+    >
+
+
+        <div class="game-popup-box">
+
+
+            <!-- =================================================
+                 CABEÇALHO DO POPUP
+            ================================================== -->
+
+            <div class="game-popup-header">
+
+
+                <div>
+
+                    <p class="game-popup-label">
+                        PLAYBOOK
+                    </p>
+
+
+                    <h2 id="popupGameTitle">
+                        Desafio dos Céus
+                    </h2>
+
+
+                    <p id="popupGameDescription">
+                        Prepare-se para começar o desafio.
+                    </p>
+
+                </div>
+
+
+
+                <!-- TEMPO -->
+
+                <div class="game-time">
+
+                    <span>
+                        TEMPO RESTANTE
+                    </span>
+
+                    <strong id="gameTimer">
+                        00:00:00
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ÁREA INTERNA DO JOGO
+            ================================================== -->
+
+            <div
+                id="gameContainer"
+                class="game-container"
+            >
+
+
+                <!-- =================================================
+                     TELA INICIAL
+                ================================================== -->
+
+                <div
+                    id="gameStartScreen"
+                    class="game-overlay"
+                >
+
+
+                    <p class="game-popup-label">
+                        PLAYBOOK
+                    </p>
+
+
+                    <h2>
+                        Pronto para começar?
+                    </h2>
+
+
+                    <p id="startGameText">
+                        Ao começar a partida, seu tempo
+                        de jogo começará a ser descontado.
+                    </p>
+
+
+
+                    <button
+                        type="button"
+                        class="button primary"
+                        onclick="startSelectedGame()"
+                    >
+                        Começar jogo
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        class="button secondary"
+                        onclick="closeGame()"
+                    >
+                        Voltar
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     JOGO DOS CÉUS
+                ================================================== -->
+
+                <div
+                    id="skyGame"
+                    class="inside-game"
+                    hidden
+                >
+
+                    <div class="game-canvas-wrapper">
+
+                        <canvas
+                            id="gameCanvas"
+                            width="800"
+                            height="500"
+                        ></canvas>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     JOGO DA MEMÓRIA
+                ================================================== -->
+
+                <div
+                    id="memoryGame"
+                    class="inside-game memory-game"
+                    hidden
+                >
+
+
+                    <h2>
+                        Encontre os pares
+                    </h2>
+
+
+                    <div
+                        id="memoryBoard"
+                        class="memory-board"
+                    ></div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     JOGO DAS PALAVRAS
+                ================================================== -->
+
+                <div
+                    id="wordGame"
+                    class="inside-game word-game"
+                    hidden
+                >
+
+
+                    <p class="game-popup-label">
+                        DESAFIO DAS PALAVRAS
+                    </p>
+
+
+                    <h2 id="wordQuestion">
+                        Qual é esta palavra?
+                    </h2>
+
+
+                    <div
+                        id="wordLetters"
+                        class="word-letters"
+                    ></div>
+
+
+                    <input
+                        type="text"
+                        id="wordInput"
+                        placeholder="Digite sua resposta"
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="button primary"
+                        onclick="checkWord()"
+                    >
+                        Responder
+                    </button>
+
+
+                    <p id="wordMessage"></p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TELA DE FIM DE JOGO
+                ================================================== -->
+
+                <div
+                    id="gameOverScreen"
+                    class="game-overlay"
+                    hidden
+                >
+
+
+                    <p class="game-popup-label">
+                        FIM DE JOGO
+                    </p>
+
+
+                    <h2>
+                        Partida encerrada
+                    </h2>
+
+
+                    <p>
+                        Sua pontuação:
+                    </p>
+
+
+                    <strong
+                        id="finalScore"
+                        class="final-score"
+                    >
+                        0
+                    </strong>
+
+
+
+                    <div class="game-actions">
+
+
+                        <button
+                            type="button"
+                            class="button primary"
+                            onclick="restartGame()"
+                        >
+                            Jogar novamente
+                        </button>
+
+
+
+                        <button
+                            type="button"
+                            class="button secondary"
+                            onclick="closeGame()"
+                        >
+                            Sair do jogo
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RODAPÉ DO POPUP
+            ================================================== -->
+
+            <div class="game-popup-footer">
+
+
+                <p id="gameControls">
+                    Controle: Espaço ou seta para cima.
+                </p>
+
+
+
+                <button
+                    type="button"
+                    class="button secondary"
+                    onclick="closeGame()"
+                >
+                    Sair
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-logo">
+            PLAYBOOK
+        </div>
+
+
+        <p>
+            Leia. Conquiste. Jogue.
+        </p>
+
+
+        <p>
+            Projeto desenvolvido como Trabalho de
+            Conclusão de Curso.
+        </p>
+
+
+    </footer>
+
+
+</body>
+
+</html>

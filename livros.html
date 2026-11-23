@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Livros | Playbook</title>
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="tema.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body class="fade-in">
+
+<header class="header">
+
+    <a href="index.html" class="logo" aria-label="Playbook - Página inicial">
+        PLAYBOOK
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="historia.html">Nossa História</a>
+        <a href="como-funciona.html">Como Funciona</a>
+        <a href="livros.html" class="active">Livros</a>
+        <a href="jogos.html">Jogos</a>
+    </nav>
+
+    <div class="user-area">
+
+        <div class="time-panel" aria-label="Saldo de tempo">
+            <span>Leitura</span>
+            <strong id="readingTime">00:00:00</strong>
+
+            <span>Jogos</span>
+            <strong id="gameTime">00:00:00</strong>
+        </div>
+
+        <a href="login.html" class="login-button">Entrar</a>
+
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Alternar modo noturno">
+            Modo noturno
+        </button>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="page-header">
+        <p class="section-label">PLAYBOOK</p>
+
+        <h1>Livros</h1>
+
+        <p>
+            Escolha um livro e comece sua leitura.
+            Seu tempo de leitura será registrado pelo Playbook.
+        </p>
+    </section>
+
+    <section class="books-grid">
+
+        <!-- LIVRO DISPONÍVEL -->
+        <article class="book-card">
+
+            <div class="book-cover">
+                <span>LIVRO</span>
+            </div>
+
+            <div class="book-info">
+                <p class="section-label">LITERATURA</p>
+
+                <h2>A Bruxa e o Caldeirão</h2>
+
+                <p>José Leon Machado
+</p>
+
+                <p>
+                    Uma bruxa, um caldeirão e uma aventura cheia de magia estão presentes nesse livro.
+                </p>
+
+                <a
+                    href="leitor.html?livro=livro-1.pdf"
+                    class="button primary">
+                    Começar leitura
+                </a>
+            </div>
+        </article>
+
+        <!-- LIVRO EM BREVE -->
+        <article class="book-card">
+
+            <div class="book-cover">
+                <span>EM BREVE</span>
+            </div>
+
+            <div class="book-info">
+                <p class="section-label">PRÓXIMO LIVRO</p>
+
+                <h2>Novo título</h2>
+
+                <p>Em breve</p>
+
+                <p>
+                    Novos livros serão adicionados
+                    à biblioteca do Playbook.
+                </p>
+
+                <button type="button" class="button secondary" disabled>
+                    Em breve
+                </button>
+            </div>
+        </article>
+
+        <!-- LIVRO EM BREVE -->
+        <article class="book-card">
+
+            <div class="book-cover">
+                <span>EM BREVE</span>
+            </div>
+
+            <div class="book-info">
+                <p class="section-label">PRÓXIMO LIVRO</p>
+
+                <h2>Novo título</h2>
+
+                <p>Em breve</p>
+
+                <p>
+                    A biblioteca será ampliada
+                    com novos conteúdos.
+                </p>
+
+                <button type="button" class="button secondary" disabled>
+                    Em breve
+                </button>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">PLAYBOOK</div>
+
+    <p>Leia. Conquiste. Jogue.</p>
+
+    <p>
+        Projeto desenvolvido como Trabalho de Conclusão de Curso.
+    </p>
+</footer>
+
+</body>
+</html>

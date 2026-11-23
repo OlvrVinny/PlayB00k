@@ -1,0 +1,4575 @@
+/* =========================================================
+   PLAYBOOK — CSS PRINCIPAL
+   ========================================================= */
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: monospace;
+    background: #F7F7F4;
+    color: #151515;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: monospace;
+}
+
+/* =========================================================
+   ANIMAÇÃO FADE-IN
+   ========================================================= */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1.8s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+
+
+
+   /* =========================================
+   POPUP DE TERMOS E PRIVACIDADE
+========================================= */
+
+.terms-modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(21, 21, 21, 0.92);
+
+    z-index: 99999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+.terms-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.terms-modal-box {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+
+    background: #FFFFFF;
+
+    border-radius: 20px;
+
+    border-top: 5px solid #5A189A;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.terms-modal.show .terms-modal-box {
+    transform: translateY(0);
+}
+
+
+/* CABEÇALHO */
+
+.terms-header {
+    padding: 28px 30px 20px;
+
+    border-bottom: 1px solid #E5E5E5;
+}
+
+
+.terms-header .section-label {
+    margin-bottom: 8px;
+
+    color: #5A189A;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+.terms-header h2 {
+    margin: 0;
+
+    color: #151515;
+
+    font-family: monospace;
+
+    font-size: 25px;
+}
+
+
+/* CONTEÚDO */
+
+.terms-content {
+    padding: 25px 30px;
+
+    max-height: 52vh;
+
+    overflow-y: auto;
+
+    color: #444;
+
+    font-family: monospace;
+
+    line-height: 1.6;
+}
+
+
+.terms-content p {
+    margin-bottom: 18px;
+}
+
+
+.terms-content h3 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+
+    color: #5A189A;
+
+    font-size: 16px;
+}
+
+
+.terms-content strong {
+    color: #151515;
+}
+
+
+/* CHECKBOX */
+
+.terms-check {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #F7F7F4;
+
+    border: 1px solid #DDDDDD;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.terms-check input {
+    width: 18px;
+    height: 18px;
+
+    margin-top: 2px;
+
+    flex-shrink: 0;
+
+    accent-color: #5A189A;
+
+    cursor: pointer;
+}
+
+
+/* RODAPÉ */
+
+.terms-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid #E5E5E5;
+
+    background: #FFFFFF;
+}
+
+
+/* BOTÃO */
+
+.terms-button {
+    width: 180px;
+
+    min-height: 40px;
+
+    border: none;
+
+    border-radius: 150px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.terms-button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+.terms-button:not(:disabled):hover {
+    background: #845EAA;
+}
+
+
+/* =========================================
+   MODO NOTURNO
+========================================= */
+
+body.dark-mode .terms-modal-box {
+    background: #151515;
+}
+
+
+body.dark-mode .terms-header {
+    border-bottom-color: #333333;
+}
+
+
+body.dark-mode .terms-header h2 {
+    color: #FFFFFF;
+}
+
+
+body.dark-mode .terms-content {
+    color: #D5D5D5;
+}
+
+
+body.dark-mode .terms-content strong {
+    color: #FFFFFF;
+}
+
+
+body.dark-mode .terms-check {
+    background: #202020;
+
+    border-color: #444444;
+}
+
+
+body.dark-mode .terms-footer {
+    background: #151515;
+
+    border-top-color: #333333;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .terms-modal {
+        padding: 12px;
+    }
+
+
+    .terms-modal-box {
+        max-height: 94vh;
+
+        border-radius: 15px;
+    }
+
+
+    .terms-header {
+        padding: 22px 20px 16px;
+    }
+
+
+    .terms-header h2 {
+        font-size: 20px;
+    }
+
+
+    .terms-content {
+        padding: 20px;
+
+        max-height: 58vh;
+
+        font-size: 13px;
+    }
+
+
+    .terms-footer {
+        padding: 15px 20px;
+    }
+
+
+    .terms-button {
+        width: 100%;
+    }
+
+}
+
+:root {
+    --purple: #5A189A;
+
+    --lilac: #B77BE8;
+    --dark-lilac: #845EAA;
+
+    --green: #386C1C;
+
+    --dark: #151515;
+    --light: #F7F7F4;
+    --white: #FFFFFF;
+
+    --gray: #707070;
+
+    --dark-bg: #17131A;
+    --dark-card: #241E28;
+    --dark-header: #5A189A;
+    --dark-border: #3B3340;
+}
+
+/* =========================================================
+   TODOS OS BOTÕES
+   ========================================================= */
+
+button,
+.button,
+.login-button,
+.theme-toggle,
+.playbook-modal-button,
+.resume-reading-button {
+    width: 120px;
+    height: 40px;
+
+    min-width: 120px;
+    min-height: 40px;
+
+    padding: 0;
+
+    border-radius: 150px;
+
+    background: var(--dark-lilac);
+    color: #FFFFFF;
+
+    border: 1px solid var(--dark-lilac);
+
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    transition: none;
+}
+
+/* =========================================================
+   BOTÕES — TEMA CLARO
+   ========================================================= */
+
+.button,
+.primary,
+.secondary,
+.login-button,
+.theme-toggle,
+.playbook-modal-button,
+.resume-reading-button {
+    background: #845EAA;
+    color: #FFFFFF;
+
+    border-color: #845EAA;
+}
+
+/* =========================================================
+   BOTÕES — SEM HOVER
+   ========================================================= */
+
+button:hover,
+.button:hover,
+.primary:hover,
+.secondary:hover,
+.login-button:hover,
+.theme-toggle:hover,
+.playbook-modal-button:hover,
+.resume-reading-button:hover {
+    background: #845EAA !important;
+    color: #FFFFFF !important;
+    border-color: #845EAA !important;
+
+    transform: none !important;
+    box-shadow: none !important;
+
+    transition: none !important;
+}
+
+/* =========================================================
+   BOTÃO DESABILITADO
+   ========================================================= */
+
+.disabled,
+.disabled:hover {
+    background: #D8D8D8 !important;
+    color: #777777 !important;
+    border-color: #D8D8D8 !important;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.full {
+    width: 100%;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 82px;
+
+    padding: 15px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    background: var(--white);
+
+    border-bottom: 1px solid #DDDDDD;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.logo {
+    flex-shrink: 0;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: var(--purple);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.nav a {
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    transition: none;
+}
+
+.nav a:hover {
+    color: var(--purple);
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-shrink: 0;
+}
+
+.time-panel {
+    display: grid;
+
+    grid-template-columns: auto auto;
+
+    column-gap: 10px;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+.time-panel span {
+    color: var(--gray);
+}
+
+.time-panel strong {
+    color: var(--purple);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90, 24, 154, 0.96),
+            rgba(183, 123, 232, 0.75)
+        );
+
+    color: #FFFFFF;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 750px;
+}
+
+.hero-label,
+.section-label {
+    margin-bottom: 15px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    color: var(--green);
+}
+
+.hero-label {
+    color: #FFFFFF;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+
+    line-height: 0.95;
+
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 650px;
+
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-preview {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    padding: 120px 8%;
+
+    background: #F7F7F4;
+}
+
+.about-preview h2 {
+    font-size: 45px;
+
+    line-height: 1.1;
+}
+
+.about-preview > p {
+    font-size: 18px;
+
+    color: #555555;
+}
+
+/* =========================================================
+   CONVERSÃO
+   ========================================================= */
+
+.conversion {
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background: var(--green);
+
+    color: #FFFFFF;
+}
+
+.conversion .section-label {
+    color: #FFFFFF;
+}
+
+.conversion h2 {
+    display: inline-block;
+
+    font-size: 45px;
+}
+
+.conversion-arrow {
+    display: inline-block;
+
+    margin: 0 30px;
+
+    font-size: 40px;
+}
+
+.conversion p {
+    margin-top: 25px;
+}
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    padding: 100px 8%;
+
+    background: #F7F7F4;
+}
+
+.feature-card {
+    padding: 40px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDDDDD;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.feature-card span {
+    color: var(--purple);
+
+    font-weight: bold;
+}
+
+.feature-card h3 {
+    font-size: 28px;
+
+    margin: 20px 0;
+}
+
+.feature-card p {
+    color: #666666;
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    padding: 100px 8% 70px;
+
+    background: #FFFFFF;
+
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.page-header h1 {
+    font-size: clamp(45px, 7vw, 80px);
+
+    line-height: 1;
+}
+
+.page-header p:last-child {
+    margin-top: 20px;
+
+    color: #666666;
+}
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.history {
+    padding: 100px 8%;
+
+    background: #F7F7F4;
+}
+
+.history-text {
+    width: 100%;
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.history h2 {
+    font-size: 42px;
+
+    margin-bottom: 30px;
+}
+
+.history p {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+blockquote {
+    margin-top: 50px;
+
+    padding: 30px;
+
+    border-left: 5px solid var(--purple);
+
+    background: #FFFFFF;
+
+    font-size: 22px;
+}
+
+/* =========================================================
+   COMO FUNCIONA
+   ========================================================= */
+
+.steps {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 80px 5%;
+}
+
+.step {
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 40px;
+
+    padding: 50px 0;
+
+    border-bottom: 1px solid #CCCCCC;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.step-number {
+    font-size: 35px;
+    font-weight: bold;
+
+    color: var(--purple);
+}
+
+.step h2 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.step p {
+    color: #666666;
+
+    margin-bottom: 15px;
+}
+
+.step strong {
+    color: var(--green);
+}
+
+/* =========================================================
+   REGRA DE CONVERSÃO
+   ========================================================= */
+
+.rule-box {
+    padding: 80px 5%;
+
+    background: var(--purple);
+
+    color: #FFFFFF;
+
+    text-align: center;
+}
+
+.rule-box h2 {
+    font-size: 40px;
+}
+
+.rule {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 50px;
+
+    margin: 50px 0;
+}
+
+.rule span {
+    display: block;
+
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.rule small {
+    font-size: 14px;
+}
+
+.rule-symbol {
+    font-size: 50px;
+}
+
+/* =========================================================
+   LIVROS
+   ========================================================= */
+
+.books-grid {
+    padding: 70px 8%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    background: #F7F7F4;
+}
+
+.book-card {
+    background: #FFFFFF;
+
+    border: 1px solid #DDDDDD;
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.book-cover {
+    height: 280px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: var(--purple);
+
+    color: #FFFFFF;
+
+    font-size: 30px;
+
+    letter-spacing: 5px;
+}
+
+.book-info {
+    padding: 30px;
+}
+
+.book-info h2 {
+    margin-bottom: 15px;
+}
+
+.book-info p {
+    color: #666666;
+
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   LEITOR
+   ========================================================= */
+
+.reader-body {
+    background: #202020;
+
+    color: #FFFFFF;
+}
+
+.reader-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    padding: 20px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    background: #111111;
+}
+
+.reader-header span {
+    display: block;
+
+    color: #AAAAAA;
+
+    font-size: 11px;
+}
+
+.reader-header strong {
+    color: #FFFFFF;
+}
+
+.reader {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 60px 5%;
+}
+
+.reader-title {
+    margin-bottom: 30px;
+}
+
+.reader-title h1 {
+    font-size: 50px;
+}
+
+.reader-title p:last-child {
+    color: #AAAAAA;
+}
+
+.pdf-viewer {
+    width: 100%;
+
+    height: 750px;
+
+    border: none;
+
+    background: #FFFFFF;
+}
+
+.reader-message {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #292929;
+}
+
+.reader-message strong {
+    color: #AAAAAA;
+}
+
+/* =========================================================
+   JOGOS
+   ========================================================= */
+
+.game-balance {
+    width: calc(100% - 40px);
+    max-width: 500px;
+
+    margin: 60px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDDDDD;
+}
+
+.game-balance strong {
+    display: block;
+
+    margin: 10px 0;
+
+    font-size: 50px;
+
+    color: var(--purple);
+}
+
+.games-grid {
+    padding: 30px 8% 100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    background: #F7F7F4;
+}
+
+.game-card {
+    padding: 40px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDDDDD;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.game-number {
+    color: var(--green);
+
+    font-weight: bold;
+}
+
+.game-card h2 {
+    margin: 20px 0;
+}
+
+.game-card p {
+    color: #666666;
+
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   LOGIN / CADASTRO
+   ========================================================= */
+
+.auth-body {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: var(--purple);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+
+    padding: 50px;
+
+    background: #FFFFFF;
+}
+
+.auth-card h1 {
+    margin-top: 35px;
+
+    font-size: 40px;
+}
+
+.auth-card > p {
+    color: #666666;
+
+    margin-bottom: 30px;
+}
+
+.auth-card form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.auth-card label {
+    margin-top: 10px;
+
+    font-weight: bold;
+}
+
+.auth-card input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #BBBBBB;
+
+    outline: none;
+
+    background: #FFFFFF;
+
+    color: #151515;
+}
+
+.auth-card input:focus {
+    border-color: var(--purple);
+}
+
+.form-message {
+    margin-top: 15px;
+}
+
+.auth-link {
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+.auth-link a {
+    color: var(--purple);
+
+    font-weight: bold;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 60px 8%;
+
+    background: #111111;
+
+    color: #FFFFFF;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+
+    color: #FFFFFF;
+
+    font-size: 25px;
+
+    letter-spacing: 4px;
+}
+
+/* =========================================================
+   POP-UP
+   ========================================================= */
+
+.playbook-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(21, 21, 21, 0.72);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.playbook-modal.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.playbook-modal-box {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 40px;
+
+    background: #FFFFFF;
+
+    border-top: 6px solid var(--purple);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(20px) scale(0.97);
+
+    transition: transform 0.25s ease;
+}
+
+.playbook-modal.show .playbook-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.playbook-modal-box h2 {
+    margin-bottom: 15px;
+
+    color: var(--purple);
+
+    font-family: monospace;
+
+    font-size: 26px;
+
+    letter-spacing: 1px;
+}
+
+.playbook-modal-box p {
+    margin-bottom: 30px;
+
+    color: #555555;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.playbook-modal-button {
+    width: 120px;
+    height: 40px;
+
+    background: #845EAA;
+
+    color: #FFFFFF;
+
+    border-color: #845EAA;
+}
+
+.playbook-modal-button:hover {
+    background: #845EAA !important;
+
+    color: #FFFFFF !important;
+
+    border-color: #845EAA !important;
+
+    transform: none !important;
+}
+
+/* =========================================================
+   PAUSA DA LEITURA
+   ========================================================= */
+
+.reading-pause-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(21, 21, 21, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.reading-pause-screen.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.reading-pause-box {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 50px 40px;
+
+    background: #FFFFFF;
+
+    text-align: center;
+
+    border-top: 6px solid var(--purple);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    transform: translateY(20px);
+
+    transition: transform 0.3s ease;
+}
+
+.reading-pause-screen.show .reading-pause-box {
+    transform: translateY(0);
+}
+
+.pause-line {
+    width: 50px;
+    height: 4px;
+
+    margin: 0 auto 25px;
+
+    background: var(--green);
+}
+
+.pause-label {
+    margin-bottom: 15px;
+
+    color: var(--purple);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.reading-pause-box h2 {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-family: monospace;
+
+    font-size: 32px;
+}
+
+.reading-pause-box > p {
+    color: #666666;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.pause-status {
+    display: inline-block;
+
+    margin: 30px 0 10px;
+
+    padding: 10px 18px;
+
+    background: var(--purple);
+
+    color: #FFFFFF;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.pause-return {
+    color: var(--green);
+
+    font-size: 12px;
+}
+
+.resume-reading-button {
+    width: 120px;
+    height: 40px;
+
+    margin-top: 20px;
+
+    background: #845EAA;
+
+    color: #FFFFFF;
+
+    border-color: #845EAA;
+}
+
+.resume-reading-button:hover {
+    background: #845EAA !important;
+
+    color: #FFFFFF !important;
+
+    border-color: #845EAA !important;
+
+    transform: none !important;
+}
+
+/* =========================================================
+   MODO NOTURNO
+   ========================================================= */
+
+body.dark-mode {
+    background: var(--dark-bg);
+
+    color: #F2EEF4;
+}
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+body.dark-mode p {
+    color: #D0C9D4;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #B77BE8;
+}
+
+/* =========================================================
+   HEADER — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .header {
+    background: var(--dark-header) !important;
+
+    border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+body.dark-mode .logo {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .nav a {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .nav a:hover {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .time-panel span {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .time-panel strong {
+    color: #FFFFFF !important;
+}
+
+/* =========================================================
+   BOTÕES — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode button,
+body.dark-mode .button,
+body.dark-mode .primary,
+body.dark-mode .secondary,
+body.dark-mode .login-button,
+body.dark-mode .theme-toggle,
+body.dark-mode .playbook-modal-button,
+body.dark-mode .resume-reading-button {
+    width: 120px;
+    height: 40px;
+
+    min-width: 120px;
+    min-height: 40px;
+
+    border-radius: 150px;
+
+    background: #B77BE8 !important;
+
+    color: #FFFFFF !important;
+
+    border-color: #B77BE8 !important;
+
+    transition: none !important;
+}
+
+/* =========================================================
+   BOTÕES — SEM HOVER NO MODO ESCURO
+   ========================================================= */
+
+body.dark-mode button:hover,
+body.dark-mode .button:hover,
+body.dark-mode .primary:hover,
+body.dark-mode .secondary:hover,
+body.dark-mode .login-button:hover,
+body.dark-mode .theme-toggle:hover,
+body.dark-mode .playbook-modal-button:hover,
+body.dark-mode .resume-reading-button:hover {
+    background: #B77BE8 !important;
+
+    color: #FFFFFF !important;
+
+    border-color: #B77BE8 !important;
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   SEÇÕES — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode section {
+    background: var(--dark-bg);
+}
+
+body.dark-mode .about-preview,
+body.dark-mode .features,
+body.dark-mode .books-grid,
+body.dark-mode .games-grid,
+body.dark-mode .history {
+    background: var(--dark-bg);
+}
+
+/* =========================================================
+   CARDS — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .feature-card,
+body.dark-mode .book-card,
+body.dark-mode .game-card,
+body.dark-mode .game-balance {
+    background: var(--dark-card);
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .feature-card p,
+body.dark-mode .book-info p,
+body.dark-mode .game-card p {
+    color: #CFC7D4;
+}
+
+body.dark-mode .feature-card:hover,
+body.dark-mode .book-card:hover,
+body.dark-mode .game-card:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   PAGE HEADER — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .page-header {
+    background: #1D1820;
+
+    border-bottom-color: var(--dark-border);
+}
+
+body.dark-mode .page-header p:last-child {
+    color: #CFC7D4;
+}
+
+/* =========================================================
+   ABOUT — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .about-preview > p {
+    color: #CFC7D4;
+}
+
+/* =========================================================
+   HISTORY — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .history {
+    background: var(--dark-bg);
+}
+
+body.dark-mode blockquote {
+    background: var(--dark-card);
+
+    border-left-color: #B77BE8;
+
+    color: #F2EEF4;
+}
+
+/* =========================================================
+   COMO FUNCIONA — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .step {
+    background: var(--dark-bg);
+
+    border-bottom-color: var(--dark-border);
+}
+
+body.dark-mode .step p {
+    color: #CFC7D4;
+}
+
+body.dark-mode .step strong {
+    color: var(--green);
+}
+
+/* =========================================================
+   CONVERSÃO — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .conversion {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90, 24, 154, 0.25),
+            rgba(56, 108, 28, 0.18)
+        );
+}
+
+body.dark-mode .conversion .section-label {
+    color: #FFFFFF;
+}
+
+/* =========================================================
+   REGRA — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .rule-box {
+    background: #4A137C;
+}
+
+/* =========================================================
+   LIVROS — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .books-grid {
+    background: var(--dark-bg);
+}
+
+body.dark-mode .book-card {
+    background: var(--dark-card);
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .book-info p {
+    color: #CFC7D4;
+}
+
+/* =========================================================
+   LEITOR — MODO ESCURO
+   ========================================================= */
+
+body.reader-body.dark-mode {
+    background: var(--dark-bg);
+
+    color: #FFFFFF;
+}
+
+body.dark-mode .reader {
+    background: var(--dark-bg);
+}
+
+body.dark-mode .reader-header {
+    background: #100C12;
+}
+
+body.dark-mode .reader-title p:last-child {
+    color: #CFC7D4;
+}
+
+body.dark-mode .reader-message {
+    background: var(--dark-card);
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .reader-message p {
+    color: #CFC7D4;
+}
+
+/* =========================================================
+   JOGOS — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .games-grid {
+    background: var(--dark-bg);
+}
+
+body.dark-mode .game-balance {
+    background: var(--dark-card);
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .game-balance strong {
+    color: #B77BE8;
+}
+
+body.dark-mode .game-card {
+    background: var(--dark-card);
+
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .game-number {
+    color: var(--green);
+}
+
+body.dark-mode .game-card p {
+    color: #CFC7D4;
+}
+
+body.dark-mode .game-image {
+    background: #2A232D;
+}
+
+/* =========================================================
+   LOGIN / CADASTRO — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .auth-body {
+    background: #120D16;
+}
+
+body.dark-mode .auth-card {
+    background: var(--dark-card);
+}
+
+body.dark-mode .auth-card > p {
+    color: #CFC7D4;
+}
+
+body.dark-mode .auth-card label {
+    color: #F2EEF4;
+}
+
+body.dark-mode .auth-card input {
+    background: #17131A;
+
+    border-color: #4A4050;
+
+    color: #FFFFFF;
+}
+
+body.dark-mode .auth-card input::placeholder {
+    color: #8F8794;
+}
+
+body.dark-mode .auth-card input:focus {
+    border-color: #B77BE8;
+}
+
+body.dark-mode .auth-link {
+    color: #CFC7D4;
+}
+
+body.dark-mode .auth-link a {
+    color: #B77BE8;
+}
+
+body.dark-mode .auth-link a:hover {
+    color: #B77BE8;
+}
+
+/* =========================================================
+   POP-UP — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .playbook-modal {
+    background: rgba(8, 7, 9, 0.92);
+}
+
+body.dark-mode .playbook-modal-box {
+    background: var(--dark-card);
+
+    border-top-color: #B77BE8;
+}
+
+body.dark-mode .playbook-modal-box h2 {
+    color: #B77BE8;
+}
+
+body.dark-mode .playbook-modal-box p {
+    color: #CFC7D4;
+}
+
+/* =========================================================
+   PAUSA — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode .reading-pause-screen {
+    background: rgba(8, 7, 9, 0.96);
+}
+
+body.dark-mode .reading-pause-box {
+    background: var(--dark-card);
+
+    border-top-color: #B77BE8;
+}
+
+body.dark-mode .reading-pause-box h2 {
+    color: #F2EEF4;
+}
+
+body.dark-mode .reading-pause-box > p {
+    color: #CFC7D4;
+}
+
+body.dark-mode .pause-label {
+    color: #B77BE8;
+}
+
+body.dark-mode .pause-status {
+    background: #B77BE8;
+
+    color: #FFFFFF;
+}
+
+body.dark-mode .pause-return {
+    color: var(--green);
+}
+
+/* =========================================================
+   FOOTER — MODO ESCURO
+   ========================================================= */
+
+body.dark-mode footer {
+    background: #100C12;
+
+    border-top-color: var(--green);
+}
+
+/* =========================================================
+   TRANSIÇÕES DO TEMA
+   ========================================================= */
+
+body,
+section,
+.header,
+.page-header,
+.about-preview,
+.features,
+.books-grid,
+.games-grid,
+.history,
+.feature-card,
+.book-card,
+.game-card,
+.game-balance,
+.step,
+.auth-card,
+.reader,
+.reader-message,
+.playbook-modal-box,
+.reading-pause-box,
+.auth-card input {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding: 15px 4%;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .user-area {
+        gap: 10px;
+    }
+
+    .about-preview {
+        gap: 40px;
+    }
+
+    .features,
+    .books-grid,
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        min-height: auto;
+
+        padding: 15px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+
+        letter-spacing: 3px;
+    }
+
+    .nav {
+        order: 3;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 11px;
+    }
+
+    .user-area {
+        margin-left: auto;
+
+        gap: 8px;
+    }
+
+    .time-panel {
+        font-size: 9px;
+    }
+
+    .hero {
+        min-height: 560px;
+
+        padding: 70px 7%;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 13vw, 70px);
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-preview {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 80px 7%;
+    }
+
+    .about-preview h2 {
+        font-size: 38px;
+    }
+
+    .features,
+    .books-grid,
+    .games-grid {
+        grid-template-columns: 1fr;
+
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .page-header {
+        padding: 75px 7% 55px;
+    }
+
+    .history {
+        padding: 75px 7%;
+    }
+
+    .steps {
+        padding: 60px 7%;
+    }
+
+    .step {
+        grid-template-columns: 70px 1fr;
+
+        gap: 25px;
+    }
+
+    .rule {
+        gap: 25px;
+    }
+
+    .rule span {
+        font-size: 50px;
+    }
+
+    .conversion {
+        padding: 80px 7%;
+    }
+
+    .conversion h2 {
+        font-size: 38px;
+    }
+
+    .reader {
+        padding: 40px 5%;
+    }
+
+    .pdf-viewer {
+        height: 650px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE — CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .header {
+        padding: 12px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+
+        letter-spacing: 2px;
+    }
+
+    .user-area {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .time-panel {
+        grid-template-columns: auto auto;
+
+        font-size: 8px;
+    }
+
+    .nav {
+        gap: 8px 12px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    /* Botões no celular */
+    button,
+    .button,
+    .login-button,
+    .theme-toggle,
+    .playbook-modal-button,
+    .resume-reading-button {
+        width: 120px;
+
+        height: 40px;
+
+        min-width: 120px;
+
+        min-height: 40px;
+
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 500px;
+
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .about-preview {
+        padding: 65px 6%;
+    }
+
+    .about-preview h2 {
+        font-size: 34px;
+    }
+
+    .about-preview > p {
+        font-size: 15px;
+    }
+
+    .conversion {
+        padding: 70px 6%;
+    }
+
+    .conversion h2 {
+        display: block;
+
+        font-size: 30px;
+    }
+
+    .conversion-arrow {
+        margin: 15px 0;
+
+        font-size: 30px;
+    }
+
+    .features,
+    .books-grid,
+    .games-grid {
+        padding: 60px 6%;
+    }
+
+    .feature-card,
+    .book-info,
+    .game-card {
+        padding: 30px;
+    }
+
+    .page-header {
+        padding: 65px 6% 50px;
+    }
+
+    .page-header h1 {
+        font-size: 45px;
+    }
+
+    .history {
+        padding: 65px 6%;
+    }
+
+    .history h2 {
+        font-size: 34px;
+    }
+
+    .history p {
+        font-size: 15px;
+    }
+
+    blockquote {
+        padding: 22px;
+
+        font-size: 17px;
+    }
+
+    .steps {
+        padding: 50px 6%;
+    }
+
+    .step {
+        display: block;
+
+        padding: 35px 0;
+    }
+
+    .step-number {
+        margin-bottom: 10px;
+
+        font-size: 30px;
+    }
+
+    .step h2 {
+        font-size: 25px;
+    }
+
+    .rule-box {
+        padding: 60px 6%;
+    }
+
+    .rule-box h2 {
+        font-size: 30px;
+    }
+
+    .rule {
+        gap: 15px;
+    }
+
+    .rule span {
+        font-size: 40px;
+    }
+
+    .rule-symbol {
+        font-size: 30px;
+    }
+
+    .book-cover {
+        height: 230px;
+
+        font-size: 25px;
+    }
+
+    .game-balance {
+        width: calc(100% - 30px);
+
+        padding: 30px 20px;
+
+        margin: 40px auto;
+    }
+
+    .game-balance strong {
+        font-size: 40px;
+    }
+
+    .reader-header {
+        padding: 15px 5%;
+
+        flex-wrap: wrap;
+    }
+
+    .reader-title h1 {
+        font-size: 38px;
+    }
+
+    .pdf-viewer {
+        height: 500px;
+    }
+
+    .auth-body {
+        padding: 15px;
+    }
+
+    .auth-container {
+        padding: 5px;
+    }
+
+    .auth-card {
+        padding: 30px 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 32px;
+    }
+
+    .playbook-modal {
+        padding: 15px;
+    }
+
+    .playbook-modal-box {
+        padding: 30px 22px;
+    }
+
+    .playbook-modal-box h2 {
+        font-size: 22px;
+    }
+
+    .reading-pause-screen {
+        padding: 15px;
+    }
+
+    .reading-pause-box {
+        padding: 35px 22px;
+    }
+
+    .reading-pause-box h2 {
+        font-size: 26px;
+    }
+
+    .reading-pause-box > p {
+        font-size: 13px;
+    }
+
+    footer {
+        padding: 50px 6%;
+    }
+}
+
+/* =========================================================
+   IPHONE / ANDROID — TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .header {
+        padding: 10px 4%;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav a {
+        font-size: 8px;
+    }
+
+    .time-panel {
+        font-size: 7px;
+    }
+
+    button,
+    .button,
+    .login-button,
+    .theme-toggle,
+    .playbook-modal-button,
+    .resume-reading-button {
+        width: 120px;
+
+        height: 40px;
+
+        min-width: 120px;
+
+        min-height: 40px;
+
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .conversion h2 {
+        font-size: 27px;
+    }
+
+    .page-header h1 {
+        font-size: 38px;
+    }
+
+    .reader-title h1 {
+        font-size: 32px;
+    }
+
+    .pdf-viewer {
+        height: 450px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE / TOQUE EM CELULAR
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    button,
+    .button,
+    .login-button,
+    .theme-toggle,
+    .playbook-modal-button,
+    .resume-reading-button {
+        -webkit-tap-highlight-color: transparent;
+
+        touch-action: manipulation;
+    }
+
+    .nav a {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* =========================================
+   FUNDO COM BOLINHAS / ORBES
+   Efeito visual do Playbook
+========================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(circle at 92% 4%,
+            rgba(132, 94, 170, 0.82) 0 13%,
+            rgba(132, 94, 170, 0.35) 13.5%,
+            transparent 23%),
+        radial-gradient(circle at 6% 98%,
+            rgba(56, 108, 28, 0.62) 0 11%,
+            rgba(56, 108, 28, 0.25) 12%,
+            transparent 20%),
+        radial-gradient(circle at 57% 42%,
+            rgba(183, 123, 232, 0.65) 0 1.4%,
+            rgba(183, 123, 232, 0.18) 1.8%,
+            transparent 3.2%),
+        radial-gradient(circle at 5% 35%,
+            rgba(56, 108, 28, 0.58) 0 1.8%,
+            rgba(56, 108, 28, 0.16) 2.3%,
+            transparent 4%),
+        radial-gradient(circle at 91% 87%,
+            rgba(183, 123, 232, 0.55) 0 1.3%,
+            rgba(183, 123, 232, 0.12) 1.8%,
+            transparent 3.2%),
+        linear-gradient(
+            90deg,
+            rgba(90, 24, 154, 0.96),
+            rgba(183, 123, 232, 0.75)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero::before {
+    width: 520px;
+    height: 520px;
+    top: -300px;
+    right: -120px;
+    background: #845EAA;
+    opacity: 0.75;
+    filter: blur(4px);
+}
+
+.hero::after {
+    width: 380px;
+    height: 380px;
+    bottom: -260px;
+    left: -120px;
+    background: #386C1C;
+    opacity: 0.65;
+    filter: blur(10px);
+}
+
+/* =========================================
+   BOLINHAS — MODO NOTURNO
+========================================= */
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(circle at 92% 4%,
+            rgba(132, 94, 170, 0.78) 0 13%,
+            rgba(132, 94, 170, 0.30) 13.5%,
+            transparent 23%),
+        radial-gradient(circle at 6% 98%,
+            rgba(56, 108, 28, 0.58) 0 11%,
+            rgba(56, 108, 28, 0.22) 12%,
+            transparent 20%),
+        radial-gradient(circle at 57% 42%,
+            rgba(183, 123, 232, 0.72) 0 1.4%,
+            rgba(183, 123, 232, 0.20) 1.8%,
+            transparent 3.2%),
+        radial-gradient(circle at 5% 35%,
+            rgba(56, 108, 28, 0.60) 0 1.8%,
+            rgba(56, 108, 28, 0.18) 2.3%,
+            transparent 4%),
+        radial-gradient(circle at 91% 87%,
+            rgba(183, 123, 232, 0.60) 0 1.3%,
+            rgba(183, 123, 232, 0.14) 1.8%,
+            transparent 3.2%),
+        #0F1111;
+}
+
+body.dark-mode .hero::before {
+    background: #845EAA;
+    opacity: 0.78;
+}
+
+body.dark-mode .hero::after {
+    background: #386C1C;
+    opacity: 0.68;
+}
+
+/* =========================================
+   BOLINHAS — CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+    .hero::before {
+        width: 300px;
+        height: 300px;
+        top: -170px;
+        right: -100px;
+    }
+
+    .hero::after {
+        width: 250px;
+        height: 250px;
+        bottom: -170px;
+        left: -100px;
+    }
+}
+
+
+/* =========================================================
+   PLAYBOOK — RESPONSIVIDADE REVISADA
+   Mantém o alinhamento visual do desktop no mobile
+   ========================================================= */
+
+/* Evita qualquer elemento criando rolagem horizontal */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Imagens, vídeos e conteúdos incorporados */
+img,
+video,
+iframe,
+embed,
+object {
+    max-width: 100%;
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 15px 6%;
+        gap: 16px;
+    }
+
+    .nav {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        font-size: 11px;
+    }
+
+    .user-area {
+        gap: 8px;
+    }
+
+    .hero,
+    .about-preview,
+    .conversion,
+    .features,
+    .history,
+    .steps,
+    .rule-box,
+    .books-grid,
+    .games-grid,
+    footer {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .about-preview {
+        gap: 45px;
+    }
+
+    .features,
+    .books-grid,
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 8vw, 78px);
+    }
+
+    .conversion h2 {
+        font-size: clamp(32px, 5vw, 45px);
+    }
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* ---------- CABEÇALHO ---------- */
+
+    .header {
+        position: sticky;
+        top: 0;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        width: 100%;
+        min-height: auto;
+
+        padding: 14px 6%;
+        gap: 14px;
+    }
+
+    .logo {
+        justify-self: start;
+
+        font-size: 20px;
+        letter-spacing: 3px;
+        white-space: nowrap;
+    }
+
+    .user-area {
+        width: 100%;
+        margin: 0;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+
+        gap: 8px;
+    }
+
+    .time-panel {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: flex-end;
+
+        column-gap: 8px;
+        row-gap: 2px;
+
+        font-size: 9px;
+        line-height: 1.3;
+    }
+
+    .nav {
+        order: initial;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 8px 14px;
+
+        padding-top: 2px;
+    }
+
+    .nav a {
+        font-size: 10px;
+        line-height: 1.4;
+        white-space: nowrap;
+    }
+
+    /* ---------- BOTÕES ---------- */
+
+    button,
+    .button,
+    .login-button,
+    .theme-toggle,
+    .playbook-modal-button,
+    .resume-reading-button {
+        width: 120px;
+        height: 40px;
+
+        min-width: 120px;
+        min-height: 40px;
+
+        flex: 0 0 120px;
+
+        font-size: 11px;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        width: 100%;
+        min-height: 540px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 65px 6%;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 750px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .hero h1 {
+        width: 100%;
+        margin-bottom: 24px;
+
+        font-size: clamp(42px, 12vw, 68px);
+        line-height: 0.98;
+        overflow-wrap: break-word;
+    }
+
+    .hero p {
+        width: 100%;
+        max-width: 600px;
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    /* ---------- SEÇÕES ---------- */
+
+    .about-preview {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+        gap: 28px;
+
+        padding: 70px 6%;
+    }
+
+    .about-preview h2 {
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.1;
+    }
+
+    .about-preview > p {
+        font-size: 15px;
+    }
+
+    .conversion {
+        width: 100%;
+        padding: 70px 6%;
+    }
+
+    .conversion h2 {
+        display: block;
+
+        font-size: clamp(28px, 8vw, 38px);
+        line-height: 1.15;
+
+        overflow-wrap: break-word;
+    }
+
+    .conversion-arrow {
+        display: block;
+
+        margin: 12px 0;
+
+        font-size: 28px;
+        line-height: 1;
+    }
+
+    /* ---------- CARDS ---------- */
+
+    .features,
+    .books-grid,
+    .games-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        padding: 65px 6%;
+    }
+
+    .feature-card,
+    .book-card,
+    .game-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .feature-card {
+        padding: 30px;
+    }
+
+    .book-info,
+    .game-card {
+        padding: 28px;
+    }
+
+    .book-cover {
+        width: 100%;
+        height: 240px;
+
+        font-size: 25px;
+    }
+
+    /* ---------- CABEÇALHO DAS PÁGINAS ---------- */
+
+    .page-header {
+        width: 100%;
+
+        padding: 65px 6% 50px;
+    }
+
+    .page-header h1 {
+        font-size: clamp(38px, 10vw, 60px);
+        line-height: 1;
+        overflow-wrap: break-word;
+    }
+
+    .page-header p:last-child {
+        font-size: 15px;
+    }
+
+    /* ---------- HISTÓRIA ---------- */
+
+    .history {
+        width: 100%;
+        padding: 65px 6%;
+    }
+
+    .history-text {
+        width: 100%;
+        max-width: 850px;
+    }
+
+    .history h2 {
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.1;
+    }
+
+    .history p {
+        font-size: 15px;
+    }
+
+    blockquote {
+        margin-top: 35px;
+        padding: 22px;
+
+        font-size: 16px;
+        line-height: 1.7;
+
+        overflow-wrap: break-word;
+    }
+
+    /* ---------- COMO FUNCIONA ---------- */
+
+    .steps {
+        width: 100%;
+        padding: 50px 6%;
+    }
+
+    .step {
+        display: block;
+
+        width: 100%;
+        padding: 32px 0;
+
+        overflow-wrap: break-word;
+    }
+
+    .step-number {
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+
+    .step h2 {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    .step p {
+        font-size: 15px;
+    }
+
+    /* ---------- REGRA ---------- */
+
+    .rule-box {
+        width: 100%;
+        padding: 60px 6%;
+    }
+
+    .rule-box h2 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .rule {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 8px;
+        margin: 35px 0;
+    }
+
+    .rule span {
+        font-size: clamp(42px, 12vw, 58px);
+        line-height: 1;
+    }
+
+    .rule-symbol {
+        font-size: 30px;
+        line-height: 1;
+    }
+
+    /* ---------- LEITOR ---------- */
+
+    .reader-header {
+        width: 100%;
+
+        padding: 14px 6px;
+
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .reader {
+        width: 100%;
+        max-width: 1200px;
+
+        padding: 40px 6%;
+    }
+
+    .reader-title h1 {
+        font-size: clamp(32px, 9vw, 45px);
+        line-height: 1.05;
+        overflow-wrap: break-word;
+    }
+
+    .reader-title p:last-child {
+        font-size: 13px;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+        height: min(70vh, 600px);
+        min-height: 420px;
+    }
+
+    .reader-message {
+        width: 100%;
+        padding: 22px;
+        overflow-wrap: break-word;
+    }
+
+    /* ---------- JOGOS ---------- */
+
+    .game-balance {
+        width: calc(100% - 12%);
+
+        margin: 45px auto;
+
+        padding: 30px 20px;
+    }
+
+    .game-balance strong {
+        font-size: clamp(36px, 10vw, 48px);
+        overflow-wrap: break-word;
+    }
+
+    /* ---------- LOGIN / CADASTRO ---------- */
+
+    .auth-body {
+        width: 100%;
+        min-height: 100svh;
+
+        padding: 15px 6%;
+    }
+
+    .auth-container {
+        width: 100%;
+        max-width: 480px;
+
+        padding: 0;
+    }
+
+    .auth-card {
+        width: 100%;
+        padding: 35px 24px;
+    }
+
+    .auth-card h1 {
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.1;
+    }
+
+    .auth-card input {
+        min-height: 46px;
+    }
+
+    /* ---------- POP-UP ---------- */
+
+    .playbook-modal {
+        padding: 16px 6%;
+    }
+
+    .playbook-modal-box {
+        width: 100%;
+        max-width: 450px;
+
+        padding: 30px 22px;
+
+        max-height: calc(100svh - 32px);
+        overflow-y: auto;
+    }
+
+    .playbook-modal-box h2 {
+        font-size: 22px;
+    }
+
+    .playbook-modal-box p {
+        font-size: 14px;
+    }
+
+    /* ---------- PAUSA DA LEITURA ---------- */
+
+    .reading-pause-screen {
+        padding: 16px 6%;
+    }
+
+    .reading-pause-box {
+        width: 100%;
+        max-width: 500px;
+
+        padding: 35px 22px;
+
+        max-height: calc(100svh - 32px);
+        overflow-y: auto;
+    }
+
+    .reading-pause-box h2 {
+        font-size: clamp(25px, 7vw, 32px);
+        line-height: 1.15;
+    }
+
+    .reading-pause-box > p {
+        font-size: 13px;
+    }
+
+    /* ---------- RODAPÉ ---------- */
+
+    footer {
+        width: 100%;
+        padding: 50px 6%;
+    }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .header {
+        padding: 12px 5%;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .nav {
+        gap: 7px 11px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    .time-panel {
+        font-size: 8px;
+    }
+
+    .user-area {
+        gap: 7px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 12vw, 52px);
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-preview,
+    .conversion,
+    .features,
+    .books-grid,
+    .games-grid,
+    .history,
+    .steps,
+    .rule-box {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .about-preview {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .about-preview h2 {
+        font-size: 31px;
+    }
+
+    .conversion {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .conversion h2 {
+        font-size: 28px;
+    }
+
+    .features,
+    .books-grid,
+    .games-grid {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .feature-card,
+    .book-info,
+    .game-card {
+        padding: 24px;
+    }
+
+    .book-cover {
+        height: 220px;
+        font-size: 22px;
+    }
+
+    .page-header {
+        padding-top: 55px;
+        padding-bottom: 45px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .history {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .history h2 {
+        font-size: 30px;
+    }
+
+    blockquote {
+        padding: 18px;
+        font-size: 15px;
+    }
+
+    .steps {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .rule-box {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .rule span {
+        font-size: 42px;
+    }
+
+    .reader {
+        padding: 32px 6%;
+    }
+
+    .pdf-viewer {
+        min-height: 380px;
+        height: 65vh;
+    }
+
+    .game-balance {
+        width: calc(100% - 12%);
+        padding: 25px 16px;
+    }
+
+    .auth-card {
+        padding: 30px 20px;
+    }
+
+    .playbook-modal-box,
+    .reading-pause-box {
+        padding: 28px 20px;
+    }
+}
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav a {
+        font-size: 8px;
+    }
+
+    .time-panel {
+        font-size: 7px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .reader-title h1 {
+        font-size: 30px;
+    }
+
+    .conversion h2 {
+        font-size: 26px;
+    }
+
+    .rule span {
+        font-size: 38px;
+    }
+
+    .pdf-viewer {
+        min-height: 340px;
+    }
+}
+
+/* =========================================================
+   TOQUE — ANDROID / IPHONE
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    button,
+    .button,
+    .login-button,
+    .theme-toggle,
+    .playbook-modal-button,
+    .resume-reading-button {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .nav a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    input,
+    textarea,
+    select {
+        font-size: 16px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE — REDUZIR MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   POPUP DOS JOGOS
+========================================================= */
+
+.game-popup {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(21, 21, 21, 0.96);
+}
+
+.game-popup[hidden] {
+    display: none;
+}
+
+
+/* CAIXA DO POPUP */
+
+.game-popup-box {
+    width: min(1000px, 95vw);
+    max-height: 94vh;
+
+    overflow: hidden;
+
+    background: #FFFFFF;
+
+    border-radius: 20px;
+
+    border-top: 6px solid #5A189A;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4);
+
+    font-family: monospace;
+}
+
+
+/* CABEÇALHO */
+
+.game-popup-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 22px 28px;
+
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.game-popup-header h2 {
+    margin: 5px 0 10px;
+
+    color: #5A189A;
+}
+
+.game-popup-header p {
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+
+/* LABEL */
+
+.game-popup-label {
+    margin-bottom: 8px !important;
+
+    color: #5A189A;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* TEMPO */
+
+.game-time {
+    min-width: 150px;
+
+    padding: 12px 18px;
+
+    text-align: center;
+
+    background: #F7F7F4;
+
+    border-radius: 15px;
+}
+
+.game-time span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+.game-time strong {
+    color: #5A189A;
+
+    font-size: 22px;
+}
+
+
+/* CONTAINER DO JOGO */
+
+.game-container {
+    position: relative;
+
+    min-height: 500px;
+
+    background: #151515;
+
+    overflow: hidden;
+}
+
+
+/* TELAS SOBRE O JOGO */
+
+.game-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: rgba(21, 21, 21, 0.96);
+
+    color: #FFFFFF;
+}
+
+.game-overlay[hidden] {
+    display: none;
+}
+
+.game-overlay h2 {
+    margin: 10px 0;
+
+    color: #FFFFFF;
+}
+
+.game-overlay p {
+    max-width: 550px;
+
+    line-height: 1.6;
+}
+
+
+/* JOGOS INTERNOS */
+
+.inside-game {
+    width: 100%;
+    height: 500px;
+}
+
+.inside-game[hidden] {
+    display: none;
+}
+
+
+/* CANVAS */
+
+#skyGame {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+#gameCanvas {
+    display: block;
+
+    width: min(800px, 100%);
+
+    height: auto;
+
+    max-height: 450px;
+
+    background: #B77BE8;
+
+    border-radius: 10px;
+}
+
+
+/* MEMÓRIA */
+
+.memory-game {
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.memory-game h2 {
+    margin-top: 0;
+}
+
+.memory-board {
+    width: min(600px, 100%);
+
+    margin: 20px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.memory-card {
+    height: 90px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #5A189A;
+
+    color: #FFFFFF;
+
+    font-family: monospace;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.memory-card:hover {
+    background: #845EAA;
+}
+
+.memory-card.revealed,
+.memory-card.matched {
+    background: #386C1C;
+}
+
+
+/* PALAVRAS */
+
+.word-game {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.word-game h2 {
+    color: #FFFFFF;
+}
+
+.word-letters {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    letter-spacing: 10px;
+
+    color: #B77BE8;
+}
+
+.word-game input {
+    width: min(400px, 90%);
+
+    height: 45px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #B77BE8;
+
+    border-radius: 150px;
+
+    background: #FFFFFF;
+
+    color: #151515;
+
+    font-family: monospace;
+
+    text-align: center;
+
+    outline: none;
+}
+
+#wordMessage {
+    min-height: 20px;
+}
+
+
+/* PONTUAÇÃO */
+
+.final-score {
+    display: block;
+
+    margin: 10px 0 25px;
+
+    color: #B77BE8;
+
+    font-size: 45px;
+}
+
+
+/* BOTÕES DO GAME OVER */
+
+.game-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+
+/* RODAPÉ DO POPUP */
+
+.game-popup-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 25px;
+
+    border-top: 1px solid #DDDDDD;
+
+    background: #FFFFFF;
+}
+
+.game-popup-footer p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   MODO NOTURNO
+========================================================= */
+
+body.dark-mode .game-popup-box {
+    background: #202020;
+
+    color: #FFFFFF;
+}
+
+body.dark-mode .game-popup-header {
+    border-color: #444444;
+}
+
+body.dark-mode .game-popup-header h2 {
+    color: #B77BE8;
+}
+
+body.dark-mode .game-time {
+    background: #151515;
+}
+
+body.dark-mode .game-time strong {
+    color: #B77BE8;
+}
+
+body.dark-mode .game-popup-footer {
+    background: #202020;
+
+    border-color: #444444;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .game-popup {
+        padding: 10px;
+    }
+
+    .game-popup-box {
+        width: 100%;
+
+        max-height: 96vh;
+
+        border-radius: 15px;
+    }
+
+    .game-popup-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 18px;
+    }
+
+    .game-time {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .game-container {
+        min-height: 450px;
+    }
+
+    .inside-game {
+        height: 450px;
+    }
+
+    .memory-board {
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 7px;
+    }
+
+    .memory-card {
+        height: 70px;
+
+        font-size: 20px;
+    }
+
+    .game-popup-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .game-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+}
+
+/* =========================================
+   LEITOR PDF - QUASE TELA CHEIA
+========================================= */
+
+.reader {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 5%;
+}
+
+.pdf-reader {
+    width: 100%;
+    height: 82vh;
+    margin: 30px auto 0;
+    background: #111;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pdf-reader iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* =====================================
+   JOGOS PLAYBOOK
+===================================== */
+
+.game-balance {
+    width: calc(100% - 40px);
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-color, #DDDDDD);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.game-balance strong {
+    display: block;
+    margin: 10px 0;
+    font-size: 42px;
+    color: var(--purple);
+}
+
+.games-grid {
+    padding: 30px 8% 80px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    background: var(--page-bg, #F7F7F4);
+}
+
+.game-card {
+    padding: 30px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-color, #DDDDDD);
+    border-radius: 18px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.game-number {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.game-card h2 {
+    margin: 18px 0 12px;
+    color: var(--text-color, #222222);
+}
+
+.game-card p {
+    color: var(--muted-text, #666666);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.game-card button,
+.game-action {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    background: var(--purple, #7041C5);
+    color: #FFFFFF;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.game-card button:hover,
+.game-action:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.game-area {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 10, 15, 0.78);
+    backdrop-filter: blur(7px);
+}
+
+.game-area.active {
+    display: flex;
+}
+
+.game-window {
+    position: relative;
+    width: min(850px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--card-bg, #FFFFFF);
+    color: var(--text-color, #222222);
+}
+
+.game-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    border: 0;
+    background: transparent;
+    color: var(--text-color, #222222);
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.game-heading {
+    margin-bottom: 20px;
+    padding-right: 35px;
+}
+
+.game-heading h2 {
+    color: var(--purple);
+    margin-bottom: 8px;
+}
+
+.game-heading p {
+    color: var(--muted-text, #666666);
+}
+
+.game-status {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.game-status span {
+    padding: 9px 15px;
+    border-radius: 9px;
+    background: var(--soft-bg, #F0ECFA);
+    font-weight: 700;
+}
+
+.game-feedback {
+    min-height: 28px;
+    margin: 15px 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.game-secondary {
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--purple);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* DESAFIO DOS CÉUS */
+
+#skyCanvas {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: 15px auto;
+    border-radius: 14px;
+    background: #111A3A;
+    border: 2px solid rgba(128, 105, 220, 0.5);
+    touch-action: none;
+}
+
+.sky-instructions {
+    text-align: center;
+    color: var(--muted-text, #666666);
+}
+
+/* DESAFIO DA MEMÓRIA */
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(55px, 1fr));
+    gap: 12px;
+    max-width: 520px;
+    margin: 25px auto;
+}
+
+.memory-card {
+    min-height: 95px;
+    border: 0;
+    border-radius: 13px;
+    background: var(--purple, #7041C5);
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.memory-card:hover {
+    transform: scale(1.04);
+}
+
+.memory-card.revealed,
+.memory-card.matched {
+    background: var(--soft-bg, #F0ECFA);
+    color: var(--purple);
+    border: 2px solid var(--purple);
+}
+
+.memory-card.matched {
+    background: rgba(45, 170, 105, 0.16);
+    border-color: var(--green);
+    color: var(--green);
+    cursor: default;
+}
+
+/* DESAFIO DAS PALAVRAS */
+
+.word-box {
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: var(--soft-bg, #F0ECFA);
+    text-align: center;
+}
+
+.word-scrambled {
+    margin: 20px 0;
+    color: var(--purple);
+    font-size: clamp(27px, 5vw, 42px);
+    font-weight: 800;
+    letter-spacing: 7px;
+}
+
+.word-hint {
+    margin-bottom: 18px;
+    color: var(--muted-text, #666666);
+}
+
+.word-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px;
+    border: 1px solid var(--border-color, #CCCCCC);
+    border-radius: 10px;
+    background: var(--card-bg, #FFFFFF);
+    color: var(--text-color, #222222);
+    font-size: 17px;
+    text-align: center;
+    outline: none;
+}
+
+.word-input:focus {
+    border-color: var(--purple);
+}
+
+@media (max-width: 850px) {
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 580px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .game-window {
+        padding: 22px 16px;
+    }
+
+    .memory-board {
+        gap: 8px;
+    }
+
+    .memory-card {
+        min-height: 72px;
+        font-size: 24px;
+    }
+}
+
+
+/* =====================================
+   PLAYBOOK - DESAFIO DOS CÉUS
+   Identidade visual espacial
+===================================== */
+
+#skyGame {
+    --sky-purple: #7041C5;
+    --sky-purple-light: #A98BE8;
+    --sky-green: #70D6AC;
+    --sky-text: var(--text-color, #242039);
+
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 12px 8px 28px;
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+
+#skyGame .game-heading {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 28px;
+    margin-bottom: 22px;
+    border-radius: 20px;
+    background: #282044;
+    border: 1px solid rgba(169, 139, 232, 0.35);
+    text-align: left;
+}
+
+#skyGame .game-heading::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    right: -55px;
+    top: -95px;
+    border-radius: 50%;
+    background: rgba(169, 139, 232, 0.13);
+    pointer-events: none;
+}
+
+#skyGame .sky-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #A9E9D0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+#skyGame .game-heading h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 10px;
+    color: #FFFFFF;
+    font-size: clamp(25px, 4vw, 35px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+#skyGame .game-heading p {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0;
+    color: #D2CBE8;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* PAINÉIS DE STATUS */
+
+#skyGame .sky-status {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+#skyGame .sky-stat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 75px;
+    padding: 15px 19px;
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-color, #E5E0ED);
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(35, 22, 65, 0.06);
+}
+
+#skyGame .sky-stat-label {
+    color: var(--muted-text, #777080);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#skyGame .sky-stat strong {
+    color: var(--purple, #7041C5);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+/* ÁREA DO CANVAS */
+
+#skyGame .sky-canvas-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: 12px;
+    background: #17152B;
+    border: 1px solid #62518E;
+    border-radius: 20px;
+    box-shadow: 0 15px 38px rgba(26, 18, 49, 0.20);
+}
+
+#skyGame .sky-canvas-top,
+#skyGame .sky-canvas-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 7px 12px;
+    color: #C7B9E9;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+#skyGame .sky-canvas-bottom {
+    padding: 12px 7px 3px;
+    color: #9287B1;
+    font-size: 8px;
+}
+
+#skyGame .sky-live-indicator {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: #70D6AC;
+    box-shadow: 0 0 10px rgba(112, 214, 172, 0.8);
+}
+
+#skyGame .sky-level {
+    margin-left: auto;
+    color: #A9E9D0;
+}
+
+#skyGame #skyCanvas {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+    background: #17152B;
+    border: 1px solid rgba(199, 185, 233, 0.22);
+    border-radius: 13px;
+}
+
+/* INSTRUÇÕES */
+
+#skyGame .sky-instructions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0;
+    padding: 17px 20px;
+    background: rgba(112, 65, 197, 0.07);
+    border: 1px solid rgba(112, 65, 197, 0.18);
+    border-radius: 14px;
+}
+
+#skyGame .sky-instruction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 58px;
+    height: 42px;
+    padding: 0 8px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background: #7041C5;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+#skyGame .sky-instructions strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--sky-text);
+    font-size: 13px;
+}
+
+#skyGame .sky-instructions p {
+    margin: 0;
+    color: var(--muted-text, #777080);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* FEEDBACK */
+
+#skyGame .game-feedback {
+    min-height: 25px;
+    margin: 18px 0;
+    color: var(--sky-text);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* BOTÕES */
+
+#skyGame .game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#skyGame .game-action,
+#skyGame .game-secondary {
+    min-height: 46px;
+    padding: 0 24px;
+    border-radius: 11px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#skyGame .game-action {
+    color: #FFFFFF;
+    background: #7041C5;
+    border: 1px solid #7041C5;
+}
+
+#skyGame .game-action:hover {
+    background: #5D32AC;
+    transform: translateY(-2px);
+}
+
+#skyGame .game-secondary {
+    color: var(--sky-text);
+    background: var(--card-bg, #FFFFFF);
+    border: 1px solid var(--border-color, #DAD3E8);
+}
+
+#skyGame .game-secondary:hover {
+    background: rgba(112, 65, 197, 0.08);
+    transform: translateY(-2px);
+}
+
+#skyGame button:focus-visible {
+    outline: 3px solid #70D6AC;
+    outline-offset: 3px;
+}
+
+/* MODO ESCURO */
+
+body.dark-mode #skyGame .sky-stat {
+    background: #24232D;
+    border-color: #41404C;
+    box-shadow: none;
+}
+
+body.dark-mode #skyGame .sky-stat-label {
+    color: #C3BDCF;
+}
+
+body.dark-mode #skyGame .sky-stat strong {
+    color: #B99AF3;
+}
+
+body.dark-mode #skyGame .sky-instructions {
+    background: rgba(112, 65, 197, 0.16);
+    border-color: rgba(169, 139, 232, 0.28);
+}
+
+body.dark-mode #skyGame .sky-instructions strong,
+body.dark-mode #skyGame .game-feedback {
+    color: #F0ECF8;
+}
+
+body.dark-mode #skyGame .sky-instructions p {
+    color: #C3BDCF;
+}
+
+body.dark-mode #skyGame .game-secondary {
+    color: #F0ECF8;
+    background: #292832;
+    border-color: #494653;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+    #skyGame {
+        padding: 5px 0 20px;
+    }
+
+    #skyGame .game-heading {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+
+    #skyGame .sky-stat {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+        padding: 13px;
+    }
+
+    #skyGame .sky-stat strong {
+        font-size: 23px;
+    }
+
+    #skyGame .sky-canvas-wrap {
+        padding: 7px;
+        border-radius: 13px;
+    }
+
+    #skyGame .sky-canvas-top,
+    #skyGame .sky-canvas-bottom {
+        font-size: 7px;
+        letter-spacing: 0.8px;
+    }
+
+    #skyGame .sky-instructions {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    #skyGame .game-controls {
+        gap: 9px;
+    }
+
+    #skyGame .game-action,
+    #skyGame .game-secondary {
+        flex: 1;
+        padding: 0 13px;
+    }
+}

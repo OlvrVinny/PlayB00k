@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Playbook | Leia e Jogue</title>
+
+    <!-- FAVICON PLAYBOOK -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="../favicon.png"
+    >
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="../favicon.ico"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="fade-in">
+
+
+    <!-- =========================================
+     POPUP DE TERMOS E PRIVACIDADE
+========================================= -->
+
+<div
+id="termsModal"
+class="terms-modal"
+aria-hidden="true"
+>
+
+<div
+    class="terms-modal-box"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="termsTitle"
+>
+
+    <div class="terms-header">
+
+        <p class="section-label">
+            PLAYBOOK
+        </p>
+
+        <h2 id="termsTitle">
+            Termos de Uso e Privacidade
+        </h2>
+
+    </div>
+
+
+    <div class="terms-content">
+
+        <p>
+            Para utilizar o Playbook, é importante conhecer
+            algumas regras relacionadas à privacidade,
+            segurança e proteção dos usuários.
+        </p>
+
+
+        <h3>
+            Proteção de dados
+        </h3>
+
+        <p>
+            O Playbook busca seguir os princípios da
+            <strong>Lei Geral de Proteção de Dados (LGPD -
+            Lei nº 13.709/2018)</strong>, utilizando apenas
+            informações necessárias para o funcionamento
+            da plataforma.
+        </p>
+
+
+        <h3>
+            Crianças e adolescentes
+        </h3>
+
+        <p>
+            Como o Playbook pode ser utilizado por crianças
+            e adolescentes, o projeto considera as regras
+            de proteção previstas no <strong>ECA</strong> e
+            no <strong>Estatuto Digital da Criança e do
+            Adolescente (Lei nº 15.211/2025)</strong>.
+        </p>
+
+
+        <h3>
+            Privacidade e segurança
+        </h3>
+
+        <p>
+            Os dados fornecidos ao sistema devem ser utilizados
+            exclusivamente para as funcionalidades do Playbook,
+            respeitando a privacidade e a segurança dos usuários.
+        </p>
+
+
+        <h3>
+            Uso responsável
+        </h3>
+
+        <p>
+            O usuário se compromete a utilizar a plataforma
+            de forma responsável e de acordo com sua finalidade
+            educacional.
+        </p>
+
+
+        <label class="terms-check">
+
+            <input
+                type="checkbox"
+                id="termsCheckbox"
+            >
+
+            <span>
+                Li e compreendi os Termos de Uso e as informações
+                de privacidade do Playbook.
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <div class="terms-footer">
+
+        <button
+            id="acceptTerms"
+            class="button primary terms-button"
+            type="button"
+            disabled
+        >
+            Aceitar e continuar
+        </button>
+
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+    
+            const termsModal =
+                document.getElementById("termsModal");
+    
+            const termsCheckbox =
+                document.getElementById("termsCheckbox");
+    
+            const acceptTerms =
+                document.getElementById("acceptTerms");
+    
+    
+            /*
+             * Verifica se os termos já foram aceitos.
+             */
+    
+            const termsAccepted =
+                localStorage.getItem("playbookTermsAccepted");
+    
+    
+            /*
+             * Mostra o popup somente se ainda
+             * não houver uma aceitação registrada.
+             */
+    
+            if (termsAccepted !== "false") {
+    
+                setTimeout(function () {
+    
+                    termsModal.classList.add("show");
+    
+                    termsModal.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+    
+                }, 500);
+    
+            }
+    
+    
+            /*
+             * Ativa o botão somente quando
+             * o usuário marcar a caixa.
+             */
+    
+            termsCheckbox.addEventListener(
+                "change",
+                function () {
+    
+                    acceptTerms.disabled =
+                        !termsCheckbox.checked;
+    
+                }
+            );
+    
+    
+            /*
+             * Aceitar os termos.
+             */
+    
+            acceptTerms.addEventListener(
+                "click",
+                function () {
+    
+                    if (!termsCheckbox.checked) {
+                        return;
+                    }
+    
+    
+                    localStorage.setItem(
+                        "playbookTermsAccepted",
+                        "true"
+                    );
+    
+    
+                    termsModal.classList.remove("show");
+    
+                    termsModal.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+    
+                }
+            );
+    
+        });
+    
+    </script>
+
+</div>
+
+</div>
+
+
+    <!-- CABEÇALHO -->
+
+    <header class="header">
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Playbook - Página inicial"
+        >
+            PLAYBOOK
+        </a>
+
+
+        <nav
+            class="nav"
+            aria-label="Navegação principal"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="historia.html">
+                Nossa História
+            </a>
+
+            <a href="como-funciona.html">
+                Como Funciona
+            </a>
+
+            <a href="livros.html">
+                Livros
+            </a>
+
+            <a href="jogos.html">
+                Jogos
+            </a>
+
+        </nav>
+
+
+        <div class="user-area">
+
+            <div
+                class="time-panel"
+                aria-label="Saldo de tempo"
+            >
+
+                <span>
+                    Leitura
+                </span>
+
+                <strong id="readingTime">
+                    00:00:00
+                </strong>
+
+
+                <span>
+                    Jogos
+                </span>
+
+                <strong id="gameTime">
+                    00:00:00
+                </strong>
+
+            </div>
+
+
+            <a
+                href="login.html"
+                class="login-button"
+            >
+                Entrar
+            </a>
+
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Alternar modo noturno"
+            >
+                Modo noturno
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    PROJETO PLAYBOOK
+                </p>
+
+
+                <h1>
+                    Leia hoje.
+                    <br>
+                    Jogue amanhã.
+                </h1>
+
+
+                <p>
+                    Transforme seu tempo de leitura em tempo
+                    de jogo. Quanto mais você lê, mais tempo
+                    conquista para jogar.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="livros.html"
+                        class="button primary"
+                    >
+                        Começar a ler
+                    </a>
+
+
+                    <a
+                        href="como-funciona.html"
+                        class="button secondary"
+                    >
+                        Como funciona
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SOBRE O PROJETO -->
+
+        <section class="about-preview">
+
+            <div>
+
+                <p class="section-label">
+                    O PROJETO
+                </p>
+
+
+                <h2>
+                    Leitura que se transforma em conquista.
+                </h2>
+
+            </div>
+
+
+            <p>
+                O Playbook nasceu para aproximar dois universos:
+                a leitura e os jogos. A proposta é simples:
+                o tempo dedicado aos livros pode ser convertido
+                em tempo para jogar.
+            </p>
+
+        </section>
+
+
+
+        <!-- REGRA DE CONVERSÃO -->
+
+        <section class="conversion">
+
+            <p class="section-label">
+                NOSSA REGRA
+            </p>
+
+
+            <h2>
+                15 minutos de leitura
+            </h2>
+
+
+            <div
+                class="conversion-arrow"
+                aria-hidden="true"
+            >
+                =
+            </div>
+
+
+            <h2>
+                10 minutos de jogo
+            </h2>
+
+
+            <p>
+                Leia, acumule seu tempo e escolha quando utilizar
+                o tempo conquistado.
+            </p>
+
+        </section>
+
+
+
+        <!-- COMO FUNCIONA -->
+
+        <section class="features">
+
+
+            <article class="feature-card">
+
+                <span>
+                    01
+                </span>
+
+
+                <h3>
+                    Leia
+                </h3>
+
+
+                <p>
+                    Escolha um livro disponível no Playbook
+                    e comece sua jornada.
+                </p>
+
+            </article>
+
+
+
+            <article class="feature-card">
+
+                <span>
+                    02
+                </span>
+
+
+                <h3>
+                    Acumule
+                </h3>
+
+
+                <p>
+                    O sistema registra seu tempo de leitura
+                    e transforma sua dedicação em minutos de jogo.
+                </p>
+
+            </article>
+
+
+
+            <article class="feature-card">
+
+                <span>
+                    03
+                </span>
+
+
+                <h3>
+                    Jogue
+                </h3>
+
+
+                <p>
+                    Utilize o tempo conquistado para acessar
+                    os jogos disponíveis.
+                </p>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PLAYBOOK
+        </div>
+
+
+        <p>
+            Leia. Conquiste. Jogue.
+        </p>
+
+
+        <p>
+            Projeto desenvolvido como Trabalho de Conclusão de Curso.
+        </p>
+
+    </footer>
+
+
+
+    <!-- MODO NOTURNO -->
+
+    <script
+        src="tema.js"
+        defer
+    ></script>
+
+
+    <!-- SCRIPT PRINCIPAL -->
+
+    <script
+        src="app.js"
+        defer
+    ></script>
+
+
+</body>
+
+</html>

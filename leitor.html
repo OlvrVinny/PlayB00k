@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leitura | PlayBook</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="reader-body">
+
+    <!-- CABEÇALHO -->
+    <header class="reader-header">
+
+        <!-- LOGO -->
+        <a href="livros.html" class="logo">
+            PLAYBOOK
+        </a>
+
+        <!-- TEMPO DE LEITURA -->
+        <div class="reader-time">
+            <span>Tempo de leitura</span>
+            <strong id="readerTimer">00:00:00</strong>
+        </div>
+
+        <!-- TEMPO CONQUISTADO -->
+        <div class="reader-game-time">
+            <span>Tempo conquistado</span>
+            <strong id="readerGameTime">00:00:00</strong>
+
+            <!-- MODO NOTURNO -->
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+            >
+                Modo noturno
+            </button>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="reader">
+
+        <!-- TÍTULO -->
+        <div class="reader-title">
+
+            <p class="section-label">
+                LEITURA EM ANDAMENTO
+            </p>
+
+            <h1>Sua leitura</h1>
+
+            <p>
+                Dedique seu tempo à leitura.
+                O PlayBook cuidará da conversão.
+            </p>
+
+        </div>
+
+        <!-- PDF -->
+        <div class="pdf-reader">
+
+            <iframe
+                id="pdfViewer"
+                title="Livro em leitura"
+                width="100%"
+                height="700px"
+            ></iframe>
+
+        </div>
+
+        <!-- MENSAGEM -->
+        <div class="reader-message">
+
+            <strong>Continue lendo.</strong>
+
+            <p>
+                A cada 15 minutos de leitura,
+                você conquista 10 minutos para jogar.
+            </p>
+
+            <!-- PROGRESSO -->
+            <div class="reading-progress">
+
+                <div class="reading-progress-info">
+
+                    <span>Próximo crédito</span>
+
+                    <strong id="nextCredit">15:00</strong>
+
+                </div>
+
+                <div class="reading-progress-bar">
+
+                    <div
+                        id="readingProgress"
+                        class="reading-progress-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script src="tema.js"></script>
+    <script src="leitor.js"></script>
+
+    <!-- CARREGAR PDF -->
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const params = new URLSearchParams(window.location.search);
+
+            const livro = params.get("livro");
+
+            const pdfViewer = document.getElementById("pdfViewer");
+
+            // PDF padrão
+            const pdfPadrao = "livro-1.pdf";
+
+            // Se um livro foi enviado pela URL
+            const arquivoPDF = livro || pdfPadrao;
+
+            // Carrega o PDF
+            pdfViewer.src = encodeURIComponent(arquivoPDF)
+                ? arquivoPDF
+                : pdfPadrao;
+
+        });
+
+    </script>
+
+</body>
+</html>

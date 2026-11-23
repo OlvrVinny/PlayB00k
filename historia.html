@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nossa História | Playbook</title>
+
+
+    <!-- FAVICON PLAYBOOK -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../favicon.png"
+    >
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="../favicon.ico"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="fade-in">
+
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================= -->
+
+    <header class="header">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Playbook - Página inicial"
+        >
+            PLAYBOOK
+        </a>
+
+
+        <!-- NAVEGAÇÃO -->
+
+        <nav
+            class="nav"
+            aria-label="Navegação principal"
+        >
+
+            <a href="index.html">
+                INÍCIO
+            </a>
+
+            <a href="historia.html">
+                NOSSA HISTÓRIA
+            </a>
+
+            <a href="como-funciona.html">
+                COMO FUNCIONA
+            </a>
+
+            <a href="livros.html">
+                LIVROS
+            </a>
+
+            <a href="jogos.html">
+                JOGOS
+            </a>
+
+        </nav>
+
+
+        <!-- ÁREA DO USUÁRIO -->
+
+        <div class="user-area">
+
+
+            <!-- SALDO DE TEMPO -->
+
+            <div
+                class="time-panel"
+                aria-label="Saldo de tempo"
+            >
+
+                <span>
+                    Leitura
+                </span>
+
+                <strong id="readingTime">
+                    00:00:00
+                </strong>
+
+
+                <span>
+                    Jogos
+                </span>
+
+                <strong id="gameTime">
+                    00:00:00
+                </strong>
+
+            </div>
+
+
+            <!-- BOTÃO ENTRAR -->
+
+            <a
+                href="login.html"
+                class="login-button"
+            >
+                Entrar
+            </a>
+
+
+            <!-- BOTÃO MODO NOTURNO -->
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Alternar modo noturno"
+            >
+                Modo noturno
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+
+    <main>
+
+
+        <!-- CABEÇALHO DA PÁGINA -->
+
+        <section class="page-header">
+
+            <p class="section-label">
+                QUEM SOMOS
+            </p>
+
+            <h1>
+                Nossa História
+            </h1>
+
+            <p>
+                Conheça a ideia por trás do Playbook.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             HISTÓRIA
+        ===================================== -->
+
+        <section class="history">
+
+            <div class="history-text">
+
+                <h2>
+                    Uma ideia criada por estudantes
+                </h2>
+
+
+                <p>
+                    Somos um grupo formado por cinco estudantes da
+                    3ª série do Ensino Médio, com habilitação em
+                    Desenvolvimento de Sistemas.
+                </p>
+
+
+                <p>
+                    Criamos o Playbook com o objetivo de incentivar
+                    crianças e jovens a desenvolverem o hábito da leitura,
+                    utilizando uma proposta diferente: transformar o
+                    tempo dedicado aos livros em tempo para jogos.
+                </p>
+
+
+                <p>
+                    Acreditamos que a tecnologia e a educação podem
+                    caminhar juntas. Por isso, criamos uma plataforma
+                    que busca tornar a leitura mais atrativa, estimulando
+                    os jovens a descobrirem novos conhecimentos e,
+                    ao mesmo tempo, aproveitarem seus momentos de lazer.
+                </p>
+
+
+                <p>
+                    Nossa proposta não é substituir a leitura pelos jogos,
+                    mas mostrar que dedicação e diversão podem fazer parte
+                    da mesma jornada.
+                </p>
+
+
+                <blockquote>
+                    "Cada página lida é um passo a mais para descobrir
+                    novos mundos."
+                </blockquote>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PLAYBOOK
+        </div>
+
+        <p>
+            Leia. Conquiste. Jogue.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <!-- MODO NOTURNO -->
+
+    <script
+        src="tema.js"
+        defer
+    ></script>
+
+
+    <!-- CONTROLE DE TEMPO -->
+
+    <script
+        src="app.js"
+        defer
+    ></script>
+
+
+</body>
+
+</html>
